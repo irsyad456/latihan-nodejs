@@ -37,6 +37,7 @@ export const savePengaduan = (req, res)=>{
     const fileSize = file.data.length;
     const ext = path.extname(file.name);
     const fileName = file.md5 + ext;
+    const url = `${req.protocol}://${req.get("host")}/images/${fileName}`;
     const allowedType = ['.png', '.jpg', '.jpeg'];
 
     if(!allowedType.includes(ext.toLowerCase())) return res.status(422).json({msg: "Invalid Image Type"});
@@ -45,7 +46,8 @@ export const savePengaduan = (req, res)=>{
     file.mv(`./public/images/${fileName}`, async(err)=>{
         if(err) return res.status(500).json({msg: err.message});
         try {
-            await pengaduan.create({tgl_pengaduan: tgl_pengaduan, isi_laporan: isi_laporan, foto: fileName, status: status})
+            await pengaduan.create({tgl_pengaduan: tgl_pengaduan,
+                isi_laporan: isi_laporan, foto: fileName, url: url, status: status})
             res.status(201).json({msg: "Pengaduan Uploaded"});
         } catch (error) {
             console.log(error.message);

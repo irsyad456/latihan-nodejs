@@ -8,6 +8,7 @@ const pengaduan = db.define('pengaduan', {
     nik: DataTypes.CHAR,
     isi_laporan: DataTypes.TEXT,
     foto: DataTypes.STRING,
+    url: DataTypes.STRING,
     status: DataTypes.ENUM('0', 'proses', 'selesai')
 }, {
     freezeTableName: true
