@@ -1,0 +1,11 @@
+###
+POST http://localhost:5000/masyarakat
+Content-Type: application/json
+
+{
+    "nik" : "10923",
+    "nama" : "name",
+    "username" : "user",
+    "password" : "1234",
+    "telp" : "1231923",
+}

@@ -10,10 +10,10 @@ import {
 
 const router = express.Router();
 
-router.get('/Tanggapan', getTanggapan)
-router.get('/Tanggapan/:id', getTanggapanById)
-router.post('/Tanggapan/:id', saveTanggapan)
-router.patch('/Tanggapan/:id', updateTanggapan)
-router.delete('/Tanggapan/:id', deleteTanggapan)
+router.get('/tanggapan', getTanggapan)
+router.get('/tanggapan/:id', getTanggapanById)
+router.post('/tanggapan', saveTanggapan)
+router.patch('/tanggapan', updateTanggapan)
+router.delete('/tanggapan/:id', deleteTanggapan)
 
 export default router;

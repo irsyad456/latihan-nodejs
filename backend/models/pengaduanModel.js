@@ -1,7 +1,8 @@
 import { Sequelize } from "sequelize";
 import db from "../config/database.js";
+import tanggapan from "./tanggapanModel.js"
 
-const {DataTypes} = Sequelize;
+const { DataTypes } = Sequelize;
 
 const pengaduan = db.define('pengaduan', {
     tgl_pengaduan: DataTypes.DATEONLY,
@@ -14,9 +15,7 @@ const pengaduan = db.define('pengaduan', {
     freezeTableName: true
 });
 
+pengaduan.hasMany(tanggapan, { foreignKey: 'id_pengaduan' })
+tanggapan.belongsTo(pengaduan, { foreignKey: 'id_pengaduan' })
 
 export default pengaduan;
-
-(async()=>{
-    await db.sync();
-})()
