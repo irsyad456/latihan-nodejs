@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import db from "../config/database.js";
 import tanggapan from "./tanggapanModel.js";
 
-const {DataTypes} = Sequelize;
+const { DataTypes } = Sequelize;
 
 const petugas = db.define('petugas', {
     nama_petugas: DataTypes.STRING,
@@ -18,10 +18,6 @@ const petugas = db.define('petugas', {
     freezeTableName: true
 })
 
-petugas.hasMany(tanggapan, { foreignKey: 'id_petugas'})
+petugas.hasMany(tanggapan, { foreignKey: 'id_petugas' })
 
 export default petugas;
-
-(async()=>{
-    await db.sync();
-})()

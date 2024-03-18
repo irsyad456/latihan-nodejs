@@ -45,29 +45,29 @@ const EditPengaduan = () => {
     }
 
     return (
-        <div class='columns is-centered mt-5'>
-            <div class='column is-half'>
+        <div className='columns is-centered mt-5'>
+            <div className='column is-half'>
                 <form onSubmit={updatePengaduan}>
-                    <div class='field'>
-                        <label class='label'>Isi Laporan</label>
-                        <div class='control'>
+                    <div className='field'>
+                        <label className='label'>Isi Laporan</label>
+                        <div className='control'>
                             <input
                                 type="text"
-                                class='input'
+                                className='input'
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                                 placeholder='Isi Laporan'
                             />
                         </div>
                     </div>
-                    <div class='field'>
-                        <label class='label'>Foto</label>
-                        <div class='control'>
-                            <div class='file'>
-                                <label class='file-label'>
-                                    <input type="file" class='file-input' onChange={loadImage} />
-                                    <span class='file-cta'>
-                                        <span class='file-label'>Masukkan Foto...</span>
+                    <div className='field'>
+                        <label className='label'>Foto</label>
+                        <div className='control'>
+                            <div className='file'>
+                                <label className='file-label'>
+                                    <input type="file" className='file-input' onChange={loadImage} />
+                                    <span className='file-cta'>
+                                        <span className='file-label'>Masukkan Foto...</span>
                                     </span>
                                 </label>
                             </div>
@@ -75,14 +75,14 @@ const EditPengaduan = () => {
                     </div>
 
                     {preview ? (
-                        <figure class='image is-128x128'>
+                        <figure className='image is-128x128'>
                             <img src={preview} alt="Preview" />
                         </figure>
                     ) : ('')}
 
-                    <div class='field'>
-                        <div class='control'>
-                            <button type='submit' class='button is-success'>Update</button>
+                    <div className='field'>
+                        <div className='control'>
+                            <button type='submit' className='button is-success'>Update</button>
                         </div>
                     </div>
                 </form>

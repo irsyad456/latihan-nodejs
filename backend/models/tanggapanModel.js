@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import db from "../config/database.js";
 import pengaduan from "./pengaduanModel.js";
 
-const {DataTypes} = Sequelize;
+const { DataTypes } = Sequelize;
 
 const tanggapan = db.define('tanggapan', {
     id_pengaduan: DataTypes.INTEGER,
@@ -13,10 +13,5 @@ const tanggapan = db.define('tanggapan', {
     freezeTableName: true
 });
 
-tanggapan.belongsTo(pengaduan, { foreignKey: 'id_pengaduan'})
 
 export default tanggapan;
-
-(async()=>{
-    await db.sync();
-})()

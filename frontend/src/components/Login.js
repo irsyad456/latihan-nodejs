@@ -16,32 +16,33 @@ const Login = () => {
         "http://localhost:5000/masyarakat/login",
         {
           username: username,
-          pass: password,
+          password: password,
         }
       );
 
-      if (response.data.success) {
-        localStorage.setItem("token", response.data.token);
-        navigate("/");
-      } else {
+      if (response.status === 200) {
+        localStorage.setItem("accessToken", response.data.accessToken);
+        navigate("/dashboard");
+      } else if (response.status === 401) {
         setError(response.data.msg);
       }
+      console.log(response)
     } catch (error) {
-      console.log(error.message);
-      setError("An Error Occured :(");
+      console.log(error);
+      setError(error.response.data.msg);
     }
   };
 
   return (
-    <div class="columns is-centered mt-5">
-      <div class="column is-one-third">
+    <div className="columns is-centered mt-5">
+      <div className="column is-one-third">
         <form onSubmit={handleLogin}>
-          <div class="field">
-            <label class="label">Username</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Username</label>
+            <div className="control">
               <input
                 type="text"
-                class="input"
+                className="input"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Masukkan Username"
@@ -49,12 +50,12 @@ const Login = () => {
               />
             </div>
           </div>
-          <div class="field">
-            <label class="label">Password</label>
-            <div class="control">
+          <div className="field">
+            <label className="label">Password</label>
+            <div className="control">
               <input
                 type="password"
-                class="input"
+                className="input"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Masukkan Password"
@@ -62,10 +63,10 @@ const Login = () => {
               />
             </div>
           </div>
-          {error && <p class="has-text-danger">{error}</p>}
-          <div class="field">
-            <div class="control">
-              <button type="submit" class="button is-primary">
+          {error && <p className="has-text-danger">{error}</p>}
+          <div className="field">
+            <div className="control">
+              <button type="submit" className="button is-primary">
                 Login
               </button>
             </div>
