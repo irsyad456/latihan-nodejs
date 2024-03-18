@@ -1,6 +1,6 @@
 # Latihan NodeJs
 
-Ini adalah github untuk latihan nodejs M.Irsyad F
+Ini adalah github untuk latihan nodejs & React M.Irsyad F. Jika terdapat bug bisa membuat issue baru
 
 ## Installation
 
@@ -17,3 +17,24 @@ git clone https://github.com/irsyad456/latihan-nodejs.git
 2. ZIP Download
 
 Pada halaman utama github ini, tekan dropdown "Code" berwarna hijau, lalu pilih opsi "Download ZIP"
+
+## Configuration
+### Backend
+pastikan anda sudah menginstall [nodejs](https://nodejs.org/) dan (nodemon)[https://nodemon.io/]. (note: projek merujuk pada folder utama projek ini)
+- buat database `pengaduan_masyarakat` atau ubah line `pengaduan_masyarakat` di projek/backend/config/database.js dengan database yang tersedia
+- uncomment line 28-38 di projek/backend/index.js
+- lakukan command ini di projek/backend 
+```bash
+npm install
+
+// jalani server
+nodemon index
+```
+### Frontend
+lakukan command ini di projek/frontend
+```bash
+npm install
+
+// jalani frontend
+npm start
+```
