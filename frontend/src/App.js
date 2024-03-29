@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import PengaduanList from "./components/pengaduan/PengaduanList";
 import AddPengaduan from "./components/pengaduan/AddPengaduan";
 import EditPengaduan from "./components/pengaduan/EditPengaduan";
@@ -14,34 +14,57 @@ import TanggapanList from "./components/tanggapan/TanggapanList";
 import AddTanggapan from "./components/tanggapan/AddTanggapan";
 import EditTanggapan from "./components/tanggapan/EditTanggapan";
 import Dashboard from "./components/Dashboard";
+import MainLayout from "./MainLayout";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="*" element={
+          <MainLayout>
+            <Routes>
+              <Route index element={<Login />} />
+              <Route path="dashboard" element={<Dashboard />} />
 
-        {/* Pengaduan */}
-        <Route path="/pengaduan" element={<PengaduanList />} />
-        <Route path="/pengaduan/edit/:id" element={<EditPengaduan />} />
-        <Route path="/pengaduan/add" element={<AddPengaduan />} />
+              {/* Pengaduan */}
+              <Route path="pengaduan" element={
+                <Routes>
+                  <Route index element={<PengaduanList />} />
+                  <Route path="/edit/:id" element={<EditPengaduan />} />
+                  <Route path="/add" element={<AddPengaduan />} />
+                </Routes>
+              } />
 
-        {/* Masyarakat */}
-        <Route path="/masyarakat" element={<MasyarakatList />} />
-        <Route path="/masyarakat/add" element={<AddMasyarakat />} />
-        <Route path="/masyarakat/edit/:masyarakatNik" element={<EditMasyarakat />} />
+              {/* Masyarakat */}
+              <Route path="masyarakat" element={
+                <Routes>
+                  <Route index element={<MasyarakatList />} />
+                  <Route path="/edit/:id" element={<EditMasyarakat />} />
+                  <Route path="/add" element={<AddMasyarakat />} />
+                </Routes>
+              } />
 
-        {/* Petugas */}
-        <Route path="/petugas" element={<PetugasList />} />
-        <Route path="/petugas/add" element={<AddPetugas />} />
-        <Route path="/petugas/edit/:id" element={<EditPetugas />} />
+              {/* Petugas */}
+              <Route path="petugas" element={
+                <Routes>
+                  <Route index element={<PetugasList />} />
+                  <Route path="/edit/:id" element={<EditPetugas />} />
+                  <Route path="/add" element={<AddPetugas />} />
+                </Routes>
+              } />
 
-        {/* Tanggapan */}
-        <Route path="/tanggapan" element={<TanggapanList />} />
-        <Route path="/tanggapan/add" element={<AddTanggapan />} />
-        <Route path="/tanggapan/edit/:id" element={<EditTanggapan />} />
+              {/* Tanggapan */}
+              <Route path="tanggapan" element={
+                <Routes>
+                  <Route index element={<TanggapanList />} />
+                  <Route path="/edit/:id" element={<EditTanggapan />} />
+                  <Route path="/add" element={<AddTanggapan />} />
+                </Routes>
+              } />
+            </Routes>
+          </MainLayout>
+        } />
       </Routes>
     </BrowserRouter>
   );

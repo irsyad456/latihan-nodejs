@@ -9,6 +9,9 @@ import petugasRoute from "./routes/petugasRoute.js";
 import masyarakatRoute from "./routes/masyarakatRoute.js";
 import db from "./config/database.js";
 import pengaduan from "./models/pengaduanModel.js";
+import masyarakat from "./models/masyarakatModel.js";
+import petugas from "./models/petugasModel.js";
+import tanggapan from "./models/tanggapanModel.js";
 
 dotenv.config();
 const app = express();
@@ -29,7 +32,7 @@ app.use(masyarakatRoute);
 //     async () => {
 //         try {
 //             await db.authenticate();
-//             await db.sync();
+//             await db.sync({ alter: true });
 //             console.log('Database Synchronized');
 //         } catch (error) {
 //             console.error('Database Error: ', error.message);
