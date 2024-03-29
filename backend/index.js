@@ -29,7 +29,7 @@ app.use(masyarakatRoute);
 
 // Comment This Line After no synchronize
 (
-     async () => {
+    async () => {
         try {
             await db.authenticate();
             await db.sync({ alter: true });

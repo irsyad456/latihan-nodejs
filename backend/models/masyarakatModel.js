@@ -22,18 +22,24 @@ const masyarakat = db.define('masyarakat', {
 }, {
     freezeTableName: true,
     hooks: {
-        afterSync: async (model) => {
-            if (model.sequelize.options.alter) {
+        afterSync: async () => {
+            if (await masyarakat.findByPk('0972136969', { attributes: ['nik'] })) {
                 return;
             }
 
-            await model.constructor.create({
-                nik: '0972136969',
-                nama: 'user',
-                username: 'user',
-                password: bcrypt.hash('password', 10),
-                telp: '8098321'
-            })
+            try {
+                const password = await bcrypt.hash('password', 10)
+                await masyarakat.create({
+                    nik: '0972136969',
+                    nama: 'user',
+                    username: 'user',
+                    password: password,
+                    telp: '8098321',
+                });
+                console.log('Record creation successful.');
+            } catch (error) {
+                console.error('Error creating record:', error);
+            }
         }
     }
 });
