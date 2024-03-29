@@ -6,6 +6,6 @@ Content-Type: application/json
     "nik" : "10923",
     "nama" : "name",
     "username" : "user",
-    "password" : "1234",
-    "telp" : "1231923",
+    "pass" : "1234",
+    "telp" : "1231923"
 }
