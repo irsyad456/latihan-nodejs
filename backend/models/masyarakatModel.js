@@ -27,7 +27,7 @@ const masyarakat = db.define('masyarakat', {
                 return;
             }
 
-            await model.create({
+            await model.constructor.create({
                 nik: '0972136969',
                 nama: 'user',
                 username: 'user',

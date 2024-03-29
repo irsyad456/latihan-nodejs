@@ -27,17 +27,17 @@ app.use(petugasRoute);
 app.use(masyarakatRoute);
 
 
-// Uncomment This Line If Need Synchronize 
-// (
-//     async () => {
-//         try {
-//             await db.authenticate();
-//             await db.sync({ alter: true });
-//             console.log('Database Synchronized');
-//         } catch (error) {
-//             console.error('Database Error: ', error.message);
-//         }
-//     }
-// )();
+// Comment This Line After no synchronize
+(
+     async () => {
+        try {
+            await db.authenticate();
+            await db.sync({ alter: true });
+            console.log('Database Synchronized');
+        } catch (error) {
+            console.error('Database Error: ', error.message);
+        }
+    }
+)();
 
 app.listen(5000, () => console.log('Server Online...'));
