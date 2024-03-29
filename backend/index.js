@@ -27,7 +27,7 @@ app.use(petugasRoute);
 app.use(masyarakatRoute);
 
 
-// Uncomment This Line If Need Synchronize 
+// Comment This Line if there's no change to model
 // (
 //     async () => {
 //         try {
