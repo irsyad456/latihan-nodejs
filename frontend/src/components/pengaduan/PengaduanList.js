@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
-import jwtDecode from 'jwt-decode';
-
 const PengaduanList = () => {
     const [pengaduan, setPengaduan] = useState([]);
 
     useEffect(() => {
         getPengaduan();
     }, []);
-    
+  
     const getPengaduan = async () => {
         const response = await axios.get('http://localhost:5000/pengaduan');
         setPengaduan(response.data);
