@@ -38,3 +38,7 @@ npm install
 // jalani frontend
 npm start
 ```
+
+## Note Projek
+- Web ini masih memiliki banyak fitur belum di implementasi, update akan dilakukan jika memiliki waktu
+- Comment line 31-41 di backend/index.js setelah tabel database di buat untuk mempercepat proses server backend

@@ -7,7 +7,7 @@ const PengaduanList = () => {
     useEffect(() => {
         getPengaduan();
     }, []);
-
+  
     const getPengaduan = async () => {
         const response = await axios.get('http://localhost:5000/pengaduan');
         setPengaduan(response.data);

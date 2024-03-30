@@ -27,7 +27,7 @@ const masyarakat = db.define('masyarakat', {
                 return;
             }
 
-            try {
+            try { 
                 const saltRounds = 10;
                 const password = await bcrypt.hash('password', saltRounds)
                 await masyarakat.create({
