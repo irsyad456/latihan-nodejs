@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
-import jwtDecode from 'jwt-decode';
-
 const PengaduanList = () => {
     const [pengaduan, setPengaduan] = useState([]);
-    const [data, setData] = useState('');
 
     useEffect(() => {
         getPengaduan();
-        test();
     }, []);
-
-    const test = async () => {
-        const response = await axios.get('http://localhost:5000/masyarakat-token')
-        const decoded = jwtDecode(response.data.accessToken)
-        setData(decoded.nik)
-    }
 
     const getPengaduan = async () => {
         const response = await axios.get('http://localhost:5000/pengaduan');
@@ -37,7 +27,6 @@ const PengaduanList = () => {
 
             <br />
             <Link to='/pengaduan/add' className='button is-success'> Buat Pengaduan</Link>
-            <p className=' is-bold'> {data}</p>
             <div className="columns is-multiline">
                 {pengaduan.map((pengaduan) => (
                     <div className="column is-one-quarter" key={pengaduan.id}>
