@@ -69,9 +69,9 @@ export const updateMasyarakat = async (req, res) => {
 export const loginMasyarakat = async (req, res) => {
     try {
         const user = await masyarakat.findOne({ where: { username: req.body.username } })
-        if (!user) return res.status(401).json({ msg: 'Masyarakat Not found' })
+        if (!user) return res.status(401).json({ msg: 'User or Password Incorrect' })
         const match = await bcrypt.compare(req.body.password, user.password)
-        if (!match) return res.status(401).json({ msg: 'Wrong Password!!!' })
+        if (!match) return res.status(401).json({ msg: 'User or Password Incorrect' })
         const nik = user.nik
         const nama = user.nama
         const username = user.username

@@ -36,7 +36,8 @@ const Login = () => {
   return (
     <div className="columns is-centered mt-5">
       <div className="column is-one-third">
-        <form onSubmit={handleLogin}>
+        <form className="box" onSubmit={handleLogin}>
+          <h2 className="title is-2">Login</h2>
           <div className="field">
             <label className="label">Username</label>
             <div className="control">

@@ -32,10 +32,15 @@ app.use(masyarakatRoute);
     async () => {
         try {
             await db.authenticate();
-            await db.sync({ alter: true });
-            console.log('Database Synchronized');
+
+            if (process.env.SYNC) {
+                await db.sync({ alter: true });
+                console.log('Database Synchronized');
+            } else {
+                console.log("Skipping database synchronization")
+            }
         } catch (error) {
-            console.error('Database Error: ', error.message);
+            console.error('Database Error: ', error);
         }
     }
 )();
