@@ -16,9 +16,11 @@ const Navbar = () => {
     return (
         <nav className="navbar" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
-                <a className="navbar-item" href="https://bulma.io">
+                <Link to={'/dashboard'} className="navbar-item">
                     <h2 className=" title is-bold">Pengaduan Masyarakat</h2>
-                </a>
+                </Link>
+                {/* <a className="navbar-item" href="https://bulma.io">
+                </a> */}
 
                 <button className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
@@ -31,7 +33,7 @@ const Navbar = () => {
                 <div className="navbar-start">
                     <Link to='/dashboard' className="navbar-item">Home</Link>
                     <Link to='/masyarakat' className="navbar-item">Masyarakat</Link>
-                    <Link to='/pengaduan' className="navbar-item">pengaduan</Link>
+                    <Link to='/pengaduan' className="navbar-item">Pengaduan</Link>
                     <Link to='/petugas' className="navbar-item">Petugas</Link>
                     <Link to='/tanggapan' className="navbar-item">Tanggapan</Link>
                 </div>

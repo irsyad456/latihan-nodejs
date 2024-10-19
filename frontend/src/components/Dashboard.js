@@ -12,7 +12,6 @@ const Dashboard = () => {
   const refreshToken = async () => {
     try {
       const response = await axios.get('http://localhost:5000/masyarakat-token')
-      console.log(response)
       setToken(response.data.accessToken)
       const decoded = jwt_decode(response.data.accessToken);
       setName(decoded.nama)
@@ -39,15 +38,15 @@ const Dashboard = () => {
         <h2 className="subtitle">To Website Pengaduan Masyarakat</h2>
       </section>
       <div className="buttons">
-        <Link to='/pengaduan/add' className="buttons is-primary is-light">Buat Pengaduan</Link>
+        <Link to='/pengaduan/add' className="button is-primary is-light">Buat Pengaduan</Link>
       </div>
       <table className="table is-bordered is-striped is-narrow is-fullwidth">
         <thead className="has-background-primary">
-          <tr>
-            <th className="has-text-primary-light">No</th>
-            <th className="has-text-primary-light">Foto</th>
-            <th className="has-text-primary-light">Isi Pengaduan</th>
-            <th className="has-text-primary-light">Actions</th>
+          <tr >
+            <th >No</th>
+            <th className="has-text-centered">Foto</th>
+            <th className="has-text-centered">Isi Pengaduan</th>
+            <th className="has-text-centered">Status</th>
           </tr>
         </thead>
         <tbody>
@@ -56,9 +55,22 @@ const Dashboard = () => {
               <tr key={pengaduan.id}>
                 {/* Cari cara supaya data pengaduan hanya milik masyarakat yang boleh ditampilin */}
                 <td>{index + 1}</td>
-                <td><center><img src={pengaduan.url} width="200" height="200" /></center></td>
+                <td><center><img src={pengaduan.url} width="200" height="200" alt="Bukti Pengaduan" /></center></td>
                 <td>{pengaduan.isi_laporan}</td>
-                <td>{pengaduan.status}</td>
+                <td><center>
+                  {(() => {
+                    switch (pengaduan.status) {
+                      case '0':
+                        return <span className="tag is-danger">Belum Diproses</span>;
+                      case 'proses':
+                        return <span className="tag is-warning">Proses</span>;
+                      case 'selesai':
+                        return <span className="tag is-success">Selesai</span>;
+                      default:
+                        return pengaduan.status;
+                    }
+                  })()}
+                </center></td>
               </tr>
             ))
           ) : (
