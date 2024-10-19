@@ -20,7 +20,7 @@ Pada halaman utama github ini, tekan dropdown "Code" berwarna hijau, lalu pilih 
 
 ## Configuration
 ### Backend
-pastikan anda sudah menginstall [nodejs](https://nodejs.org/) dan (nodemon)[https://nodemon.io/]. (note: projek merujuk pada folder utama projek ini)
+pastikan anda sudah menginstall [nodejs](https://nodejs.org/) dan [nodemon](https://nodemon.io/). (note: projek merujuk pada folder utama projek ini)
 - buat database `pengaduan_masyarakat` atau ubah line `pengaduan_masyarakat` di projek/backend/config/database.js dengan database yang tersedia
 - uncomment line 28-38 di projek/backend/index.js
 - lakukan command ini di projek/backend 
